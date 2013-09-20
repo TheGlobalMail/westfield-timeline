@@ -41,7 +41,7 @@ $(function () {
               fontWeight: 'bold',
               fontFamily: fontStack,
               fontSize: 10
-              }
+            }
           },
           tickLength: 3
         },
