@@ -1,6 +1,6 @@
 ###Chart template
 
-Template to automate some steps for making iframe charts for TGM stories.
+Minimal template to automate some steps for making iframe charts for TGM stories. Offers coffeescript, less and livereload for rapid chart-making.
 
 1. `npm install`
 2. `bower install <package>` for the packages you want to use, eg `bower install jquery highcharts`
