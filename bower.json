@@ -1,6 +1,6 @@
 {
   "name": "tgm-chart",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/TheGlobalMail/chart-template",
   "description": "automate the task of making a tgm chart",
   "private": true,
@@ -10,7 +10,5 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery": "1.7.2",
-    "highcharts": "~3.0.5"
   }
 }
