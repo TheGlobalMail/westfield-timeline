@@ -133,6 +133,7 @@ textarea {
 }
 body {
   margin: 0;
+  padding: 0; 
   font-family: "open-sans", "Open Sans", Helvetica, Arial, sans-serif;
   line-height: 20px;
   color: #333333;
@@ -196,7 +197,6 @@ body {
   font-family: "open-sans", "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  padding: 10px 0;
 }
 section {
   margin: 0 1em;
@@ -213,9 +213,11 @@ section {
   margin: 0 0 30px 0;
 }
 .credit {
-  margin: 20px;
+  &:before, &:after { content: ' '; display: table; }
+  &:after { clear: both; }
+  margin: 20px 20px 0 20px;
   border-top: 1px solid #dddddd;
-  padding-top: 19px;
+  padding: 19px 0 20px 0;
 }
 .source,
 .tgm-watermark {
@@ -249,13 +251,15 @@ section {
   font-size: 14px;
   padding: 7px 0;
   padding-left: 38px;
-  background: url(../images/tgm-logo-30px.png) left center no-repeat;
+  background: url(../images/tgm-logo-30px-trsp.png) left center no-repeat;
+  opacity: 0.8;
   text-align: right;
   font-weight: 500;
-}
-.tgm-watermark:hover {
-  color: #111111;
-  text-decoration: underline;
+  &:hover {
+    color: #111111;
+    text-decoration: underline;
+    opacity: 1;
+  }
 }
 
 /* viz-specific things below */

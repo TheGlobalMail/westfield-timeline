@@ -1,32 +1,24 @@
 (function() {
-  var formatDate, h, margin, mouseOff, mouseOn, parseDate, rectSize, svg, tgmColors, tip, tooltipContent, w, y, yAxis;
+  var formatDate, h, margin, mouseOff, mouseOn, parseDate, rectSize, svg, tip, tooltipContent, w, y, yAxis;
 
   margin = {
-    t: 20,
+    t: 0,
     r: 20,
-    b: 0,
+    b: 30,
     l: 20
   };
 
-  w = 600 - margin.l - margin.r;
+  w = 620 - margin.l - margin.r;
 
   h = 750 - margin.t - margin.b;
 
-  y = d3.time.scale().range([0, h]);
+  y = d3.time.scale().range([h, 0]);
 
   formatDate = d3.time.format("%Y").parse;
 
   parseDate = d3.time.format("%Y");
 
-  rectSize = 12;
-
-  tgmColors = {
-    green: 'rgba(26, 173, 70, 1.0)',
-    yellow: 'rgba(243, 191, 7, 1.0)',
-    orange: 'rgba(253, 137, 57, 1.0)',
-    blue: 'rgba(0, 100, 205, 1.0)',
-    purple: 'rgba(128, 12, 138, 1.0)'
-  };
+  rectSize = 11;
 
   d3.selection.prototype.moveToFront = function() {
     return this.each(function() {
@@ -65,7 +57,7 @@
     }
   };
 
-  tip = d3.tip().attr('class', 'd3-tip').direction('n').offset([-12, 0]).html(function(d) {
+  tip = d3.tip().attr('class', 'd3-tip').direction('s').offset([6, 0]).html(function(d) {
     return tooltipContent(d);
   });
 
@@ -83,13 +75,13 @@
     nodes = svg.append('g');
     return nodes.selectAll('.node').data(data).enter().append('rect').attr({
       "class": 'node',
-      x: rectSize / -2,
+      x: rectSize / -1.5,
       y: function(d) {
         return y(d.start_year) - 3;
       },
-      width: rectSize,
+      width: rectSize * 1.5,
       height: rectSize,
-      fill: '#bf4545'
+      fill: '#900'
     }).on('mouseover', function(d) {
       return mouseOn(this, d);
     }).on('mouseout', mouseOff);

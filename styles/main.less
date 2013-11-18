@@ -1,34 +1,43 @@
 @import "tgm-chart.less";
 
 // viz-specific things go here
+
 #main {
-  width: 600px;
+  width: 620px;
+  background: url('../images/westfield-620px.jpg') bottom left no-repeat; 
+  overflow: hidden;
+}
+
+.viz-title {
+  color: #900;
+  text-shadow: 0 1px 0 rgba(200,200,200,0.5);
 }
 
 .y-axis {
   pointer-events: none;
   path, line {
     fill: none;
-    stroke: #bfbfbf;
-    // stroke-dasharray: 1, 1;
+    stroke: #333;
+    opacity: 0.4;
     stroke-width: 1px;
     shape-rendering: crispEdges;
   }
   text {
     font-size: 26px;
-    fill: rgba(220, 220, 220, 1);
+    fill: rgba(220, 220, 220, 0.6);
+    font-weight: bold;
   }
   path {
-    stroke-dasharray: 1, 1;
+    // stroke-dasharray: 1, 1;
   }
 }
 
 .node {
-  stroke-width: 1px;
-  stroke: white;
+  stroke-width: 0;
+  stroke: rgb(80,80,80);
   stroke-opacity: 0.4;
   cursor: pointer;
-  // shape-rendering: crispEdges;
+  shape-rendering: crispEdges;
 }
 
 .d3-tip {
@@ -39,8 +48,8 @@
   font-size: 12px;
   text-align: left;
   color: rgb(102, 102, 102);
-  background: rgb(255, 255, 255);
-  border: 4px solid rgb(255, 255, 255);
+  background: #eee;
+  border: 4px solid #eee;
   border-radius: 5px;
   text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
   box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
@@ -53,9 +62,9 @@
     height: 0;
     border-width: 10px;
     border-style: solid;
-    border-color:  #FFFFFF transparent transparent transparent;
-    top: 100%;
-    margin-top:3px;
+    border-color:  transparent transparent #eee transparent;
+    top: 0%;
+    margin-top:-24px;
     margin-left: -10px;
     left: 50%;
   }
@@ -68,13 +77,25 @@
   }
   h2 {
     text-align: center;
+    font-weight: 800;
     margin: 0.5em 0em;
+    color: #900;
+    text-shadow: 0 1px 0 rgba(200,200,200,0.5);
   }
   p {
     font-size: 14px;
+    text-align: center;
   }
 }
 
 .legend-text {
   fill: rgb(51, 51, 51);
 }
+
+.credit {
+  border-top-color: #333;
+  border-top-color: rgba(80,80,80,0.4);
+}
+
+.source { color: #444; }
+.source a { color: #900; }

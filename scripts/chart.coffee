@@ -1,18 +1,10 @@
-margin = {t:20, r:20, b:0, l:20}
-w = 600 - margin.l - margin.r
+margin = {t:0, r:20, b:30, l:20}
+w = 620 - margin.l - margin.r
 h = 750 - margin.t - margin.b
-y = d3.time.scale().range([0, h])
+y = d3.time.scale().range([h, 0])
 formatDate = d3.time.format("%Y").parse
 parseDate = d3.time.format("%Y")
-rectSize = 12
-
-tgmColors = {
-  green: 'rgba(26, 173, 70, 1.0)'
-  yellow: 'rgba(243, 191, 7, 1.0)'
-  orange: 'rgba(253, 137, 57, 1.0)'
-  blue: 'rgba(0, 100, 205, 1.0)'
-  purple: 'rgba(128, 12, 138, 1.0)'
-}
+rectSize = 11
 
 d3.selection.prototype.moveToFront = () ->
   this.each(() -> this.parentNode.appendChild(this))
@@ -55,8 +47,8 @@ tooltipContent = (nodeData) ->
 
 
 tip = d3.tip().attr('class', 'd3-tip')
-  .direction('n')
-  .offset([-12, 0])
+  .direction('s')
+  .offset([6, 0])
   .html((d) -> tooltipContent(d))
 
 svg.call(tip)
@@ -82,11 +74,11 @@ d3.csv('./data/data.csv', (data) ->
   .enter().append('rect')
     .attr({
       class: 'node'
-      x: rectSize / -2
+      x: rectSize / -1.5
       y: (d) -> y(d.start_year) - 3
-      width: rectSize
+      width: rectSize * 1.5
       height: rectSize
-      fill: '#bf4545'
+      fill: '#900'
     })
     .on('mouseover', (d) -> mouseOn(this, d))
     .on('mouseout', mouseOff)
