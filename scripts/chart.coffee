@@ -11,11 +11,15 @@ d3.selection.prototype.moveToFront = () ->
 
 mouseOn = (t, d) ->
   tip.show(d)
-  d3.select('.d3-tip').style('pointer-events', 'none')
+  # d3.select('.d3-tip').style('pointer-events', 'none')
 
 mouseOff = () ->
   tip.hide()
-  d3.select('.d3-tip').style('pointer-events', 'none')
+  d3.select('.d3-tip')
+    .style({
+      top: '-1000px'
+      left: '-1000px'
+      })
 
 svg = d3.select('#chart').append('svg')
   .attr({
@@ -45,10 +49,10 @@ tooltipContent = (nodeData) ->
     '<h2>' + startYear + ' (' + nodeData.location + ')</h2>' +
     '<p>' + nodeData.event + '</p>'
 
-
-tip = d3.tip().attr('class', 'd3-tip')
+tip = d3.tip()
+  .attr('class', 'd3-tip')
   .direction('s')
-  .offset([6, 0])
+  .offset([16, 0])
   .html((d) -> tooltipContent(d))
 
 svg.call(tip)
@@ -80,6 +84,8 @@ d3.csv('./data/data.csv', (data) ->
       height: rectSize
       fill: '#900'
     })
-    .on('mouseover', (d) -> mouseOn(this, d))
+    # .on('mouseover', (d) -> mouseOn(this, d))
+    # .on('mouseout', (d) -> mouseOff)
+    .on('mouseover', tip.show)
     .on('mouseout', mouseOff)
 )

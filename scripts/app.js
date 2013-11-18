@@ -27,13 +27,15 @@
   };
 
   mouseOn = function(t, d) {
-    tip.show(d);
-    return d3.select('.d3-tip').style('pointer-events', 'none');
+    return tip.show(d);
   };
 
   mouseOff = function() {
     tip.hide();
-    return d3.select('.d3-tip').style('pointer-events', 'none');
+    return d3.select('.d3-tip').style({
+      top: '-1000px',
+      left: '-1000px'
+    });
   };
 
   svg = d3.select('#chart').append('svg').attr({
@@ -57,7 +59,7 @@
     }
   };
 
-  tip = d3.tip().attr('class', 'd3-tip').direction('s').offset([6, 0]).html(function(d) {
+  tip = d3.tip().attr('class', 'd3-tip').direction('s').offset([16, 0]).html(function(d) {
     return tooltipContent(d);
   });
 
@@ -82,9 +84,7 @@
       width: rectSize * 1.5,
       height: rectSize,
       fill: '#900'
-    }).on('mouseover', function(d) {
-      return mouseOn(this, d);
-    }).on('mouseout', mouseOff);
+    }).on('mouseover', tip.show).on('mouseout', mouseOff);
   });
 
 }).call(this);
