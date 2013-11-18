@@ -177,7 +177,6 @@ a:hover {
 }
 .viz-overview {
   /*border-bottom: 1px solid #dddddd;*/
-
   margin: 0 1em 0.5em 1em;
 }
 .viz-overview p {
@@ -258,73 +257,5 @@ section {
   color: #111111;
   text-decoration: underline;
 }
-/* viz-specific things below */#main {
-  width: 600px;
-}
-.y-axis {
-  pointer-events: none;
-}
-.y-axis path,
-.y-axis line {
-  fill: none;
-  stroke: #bfbfbf;
-  stroke-width: 1px;
-  shape-rendering: crispEdges;
-}
-.y-axis text {
-  font-size: 26px;
-  fill: #dcdcdc;
-}
-.y-axis path {
-  stroke-dasharray: 1, 1;
-}
-.node {
-  stroke-width: 1px;
-  stroke: white;
-  stroke-opacity: 0.4;
-  cursor: pointer;
-}
-.d3-tip {
-  position: relative;
-  max-width: 500px;
-  line-height: 18px;
-  padding: 5px 10px;
-  font-size: 12px;
-  text-align: left;
-  color: #666666;
-  background: #ffffff;
-  border: 4px solid #ffffff;
-  border-radius: 5px;
-  text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
-  box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
-  pointer-events: none;
-}
-.d3-tip:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-width: 10px;
-  border-style: solid;
-  border-color: #FFFFFF transparent transparent transparent;
-  top: 100%;
-  margin-top: 3px;
-  margin-left: -10px;
-  left: 50%;
-}
-.d3-tip .tooltip-li {
-  line-height: 15px;
-}
-.d3-tip .unregistered {
-  color: #b62424;
-}
-.d3-tip h2 {
-  text-align: center;
-  margin: 0.5em 0em;
-}
-.d3-tip p {
-  font-size: 14px;
-}
-.legend-text {
-  fill: #333333;
-}
+
+/* viz-specific things below */

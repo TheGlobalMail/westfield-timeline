@@ -1,3 +1,80 @@
-@import "tgm.less";
+@import "tgm-chart.less";
 
-// chart-specific things here
+// viz-specific things go here
+#main {
+  width: 600px;
+}
+
+.y-axis {
+  pointer-events: none;
+  path, line {
+    fill: none;
+    stroke: #bfbfbf;
+    // stroke-dasharray: 1, 1;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+  }
+  text {
+    font-size: 26px;
+    fill: rgba(220, 220, 220, 1);
+  }
+  path {
+    stroke-dasharray: 1, 1;
+  }
+}
+
+.node {
+  stroke-width: 1px;
+  stroke: white;
+  stroke-opacity: 0.4;
+  cursor: pointer;
+  // shape-rendering: crispEdges;
+}
+
+.d3-tip {
+  position: relative;
+  max-width: 500px;
+  line-height: 18px;
+  padding: 5px 10px;
+  font-size: 12px;
+  text-align: left;
+  color: rgb(102, 102, 102);
+  background: rgb(255, 255, 255);
+  border: 4px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
+  pointer-events: none;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color:  #FFFFFF transparent transparent transparent;
+    top: 100%;
+    margin-top:3px;
+    margin-left: -10px;
+    left: 50%;
+  }
+
+  .tooltip-li {
+    line-height: 15px;
+  }
+  .unregistered {
+    color: #b62424;
+  }
+  h2 {
+    text-align: center;
+    margin: 0.5em 0em;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.legend-text {
+  fill: rgb(51, 51, 51);
+}
